@@ -211,14 +211,23 @@ static uint8_t devAddress[] = {0xEE,0xEE,0xEE,0xEE,0xEE,0xEE};
 
 
 int main (void) {
+    // Initialize power management
     pwr_setup();
+    // Setup LED for status indication
     led_setup();
+    // Toggle LED to show startup
     led_toggle();
+    // Configure BLE radio
     ble_setup();
+    // Start BLE advertising
     ble_advertise();
+    // Toggle LED again
     led_toggle();
+    // Setup GPIO pins
     pin_setup();
+    // Setup timer for periodic wake-up
     tmr_setup();
+    // Main loop: enter power down mode
     while(1) {
         pwr_down();
     }
@@ -359,6 +368,7 @@ void pwr_down() {
 }
 
 void ble_setup() {
+    // Setup radio configuration command
     rf_commandRadioSetup SET;
     SET.commandNo = CMD_RADIO_SETUP;
     SET.startTime = 0;
@@ -370,20 +380,23 @@ void ble_setup() {
     SET.ioDivider = 0;
     SET.config = 0;
 #ifdef SensorTag
-    SET.txPower = 0x9330; // 0x9330 0x3161
+    SET.txPower = 0x9330; // Higher power for SensorTag
 #else
-    SET.txPower = 0x3161; // 0x9330 0x3161
+    SET.txPower = 0x3161; // Standard TX power
 #endif // SensorTag
     SET.pRegOverride = (uint32_t) pOverrides;
+    // Send command to radio
     HWREG(RFC_DBELL_BASE + RFC_DBELL_O_CMDR) = (uint32_t) &SET;
+    // Wait for acknowledgment
     while(!HWREGBITW(RFC_DBELL_BASE + RFC_DBELL_O_RFACKIFG,0));
     HWREGBITW(RFC_DBELL_BASE + RFC_DBELL_O_RFACKIFG,0) = 0;
+    // Wait for command completion
     while(SET.status != 0x0002);
     while((SET.status & 0x0F00) != 0x0400);
+    // Start RAT (Radio Timer)
     HWREG(RFC_DBELL_BASE + RFC_DBELL_O_CMDR) = directCmd(CMD_START_RAT);
     while(!HWREGBITW(RFC_DBELL_BASE + RFC_DBELL_O_RFACKIFG,0));
     HWREGBITW(RFC_DBELL_BASE + RFC_DBELL_O_RFACKIFG,0) = 0;
-
 }
 
 void ble_advertise() {
