@@ -23,11 +23,11 @@ cd BLE/src
 ### Building SubGHz Firmware
 ```bash
 # Base Station
-cd SubGHz/SDCC_BS
+cd SubGHz/BS
 make
 
 # Peripheral Stations (all 4 modules)
-cd SubGHz/SDCC_PS
+cd SubGHz/PS
 make all          # Builds ps1.hex, ps2.hex, ps3.hex, ps4.hex
 make PS1          # Build individual module
 ```
@@ -44,11 +44,11 @@ IoT/
 └── SubGHz/
     ├── README.md                # Sub-GHz documentation
     ├── BUILD.md                 # Additional build details
-    ├── SDCC_BS/                 # Base station firmware
+    ├── BS/                      # Base station firmware
     │   ├── main.c               # BS main code
     │   ├── Makefile             # Build configuration
     │   └── pic18f4620.h         # Microcontroller header
-    └── SDCC_PS/                 # Peripheral stations (PS1-PS4)
+    └── PS/                      # Peripheral stations (PS1-PS4)
         ├── main.c               # Unified PS source (configurable)
         ├── Makefile             # Multi-module build
         └── pic18f4620.h         # Microcontroller header
@@ -90,8 +90,8 @@ Download from Microchip's website or use open-source alternatives like pk2cmd.
 - **[BLE/README.md](BLE/README.md)** - BLE tracker implementation details
 - **[SubGHz/README.md](SubGHz/README.md)** - Sub-GHz wireless network overview
 - **[SubGHz/BUILD.md](SubGHz/BUILD.md)** - Advanced build and test modes
-- **[SubGHz/SDCC_BS/BUILD.md](SubGHz/SDCC_BS/BUILD.md)** - Base station build guide
-- **[SubGHz/SDCC_PS/BUILD.md](SubGHz/SDCC_PS/BUILD.md)** - Peripheral station build guide
+- **[SubGHz/BS/BUILD.md](SubGHz/BS/BUILD.md)** - Base station build guide
+- **[SubGHz/PS/BUILD.md](SubGHz/PS/BUILD.md)** - Peripheral station build guide
 
 ## 🏗️ Architecture
 
@@ -99,13 +99,13 @@ Download from Microchip's website or use open-source alternatives like pk2cmd.
 The SubGHz module implements a master-slave architecture:
 
 ```
-┌─────────────────────────────────────────┐
-│  Base Station (SDCC_BS)                 │
-│  • Master controller                    │
-│  • Polls peripherals sequentially       │
-│  • Aggregates counter data              │
-│  • Controls 16 GPIO outputs (4 per PS)  │
-└────────┬────────┬────────┬────────┬─────┘
+┌──────────────────────────────────────┐
+│  Base Station (BS)                   │
+│  • Master controller                 │
+│  • Polls peripherals sequentially    │
+│  • Aggregates counter data           │
+│  • Controls 16 GPIO outputs (4/PS)   │
+└────────┬────────┬────────┬────────┬──┘
          │        │        │        │
     868 MHz (wireless protocol)
          │        │        │        │
@@ -129,7 +129,7 @@ The SubGHz module implements a master-slave architecture:
 
 ### Build Targets (SubGHz)
 ```bash
-cd SubGHz/SDCC_PS
+cd SubGHz/PS
 make all          # Build all PS modules
 make PS1          # Build PS1 only (-DMODULE_ID=0x01)
 make PS2          # Build PS2 only (-DMODULE_ID=0x02)

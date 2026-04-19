@@ -7,7 +7,7 @@ This directory contains firmware for wireless counter modules. The consolidated 
 
 ### Method 1: Using Make (Recommended)
 ```bash
-cd SDCC_BS   # or SDCC_PS1, SDCC_PS2, SDCC_PS3, SDCC_PS4
+cd BS   # or PS
 make         # Builds main.hex
 make clean   # Removes build artifacts
 ```
@@ -22,7 +22,7 @@ packihx main.ihx > main.hex
 
 The firmware supports conditional compilation for testing. To enable a test mode, uncomment the appropriate `#define` in main.c:
 
-### Base Station (SDCC_BS/main.c)
+### Base Station (BS/main.c)
 - **BUILD_MODE 1**: RX-only test mode - Receives and displays FIFO data
 - **Production** (default): Full bidirectional with round-robin polling
 
@@ -31,7 +31,7 @@ Uncomment in main.c:
 //#define BUILD_MODE 1
 ```
 
-### Peripheral Modules (SDCC_PS1-PS4/main.c)
+### Peripheral Modules (PS/main.c)
 - **Production** (default): Waits for base station commands and transmits sensor data
 
 ## Hardware Requirements

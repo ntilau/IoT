@@ -1,13 +1,13 @@
-# Consolidated Peripheral Stations (SDCC_PS)
+# Consolidated Peripheral Stations (PS)
 
 ## Overview
 
-The Peripheral Stations (PS1, PS2, PS3, PS4) have been consolidated into a single `SDCC_PS` directory with a configurable MODULE_ID. All four modules are built from the same source code with different module identifiers.
+The Peripheral Stations (PS1, PS2, PS3, PS4) have been consolidated into a single `PS` directory with a configurable MODULE_ID. All four modules are built from the same source code with different module identifiers.
 
 ## Building All Modules
 
 ```bash
-cd SDCC_PS
+cd PS
 make all          # Builds ps1.hex, ps2.hex, ps3.hex, ps4.hex
 make PS1          # Build only PS1
 make PS2          # Build only PS2
@@ -76,7 +76,3 @@ pk2cmd -p PIC18F4620 -f ps2.hex -m  # Flash PS2
 pk2cmd -p PIC18F4620 -f ps3.hex -m  # Flash PS3
 pk2cmd -p PIC18F4620 -f ps4.hex -m  # Flash PS4
 ```
-
-## Legacy Structure
-
-The original SDCC_PS1-4 directories are preserved as `SDCC_PS_legacy_1-4` for reference.

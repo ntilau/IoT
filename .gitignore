@@ -1,1 +1,70 @@
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor temp files
+*~
+*.swp
+*.swo
+*.swn
+.#*
+*#
+*.bak
+*.tmp
+
+# IDE and Build Tool Files
+.vscode/
+.cproject
+.project
+.settings/
+*.depend
+*.crf
+*.d
+*.cbp.user
+*.layout
+
+# Build Artifacts - SDCC (SubGHz)
+*.o
+*.a
+*.lib
+*.lst
+*.asm
+*.cod
+*.ihx
+*.map
+*.sym
+
+# Build Artifacts - General
+build/
+dist/
+obj/
+Debug/
+Release/
+
+# Compiled Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.Python
+
+# IDE Workspace
+*.workspace
+.idea/
+*.iml
+
+# Temporary files
+*.temp
+*.cache
+.tmp/
+temp/
+
+# Generated firmware images (hex files may be regenerated)
+# Uncomment if you want to exclude all hex files
+# *.hex
