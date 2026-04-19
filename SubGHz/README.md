@@ -26,7 +26,6 @@ make PS2  # Build only PS2
 
 - **SDCC_BS**: Base station - Master controller (main.c with optional BUILD_MODE test modes)
 - **SDCC_PS**: Consolidated peripheral stations - Single source with configurable MODULE_ID for PS1-PS4
-- **SDCC_PS_legacy_1-4**: Original separate directories (archived for reference)
 
 ## Tools
 
