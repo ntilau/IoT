@@ -1,0 +1,58 @@
+{
+  "cordova-plugin-whitelist": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-whitelist@1.3.3"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-bluetoothle": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-bluetoothle@4.4.3"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-background-mode-bluetooth-central": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-background-mode-bluetooth-central"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-background-mode-bluetooth-peripheral": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-background-mode-bluetooth-peripheral"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-uniquedeviceid": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-uniquedeviceid"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-camera": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-camera@4.0.2"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-splashscreen": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-splashscreen@5.0.2"
+    },
+    "is_top_level": true,
+    "variables": {}
+  }
+}

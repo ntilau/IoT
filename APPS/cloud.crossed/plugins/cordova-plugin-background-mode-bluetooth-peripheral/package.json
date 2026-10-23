@@ -1,0 +1,59 @@
+{
+  "_from": "cordova-plugin-background-mode-bluetooth-peripheral",
+  "_id": "cordova-plugin-background-mode-bluetooth-peripheral@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha1-gJ9ucMQPYt2bhWmwVF+CRrjsK3U=",
+  "_location": "/cordova-plugin-background-mode-bluetooth-peripheral",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-background-mode-bluetooth-peripheral",
+    "name": "cordova-plugin-background-mode-bluetooth-peripheral",
+    "escapedName": "cordova-plugin-background-mode-bluetooth-peripheral",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-background-mode-bluetooth-peripheral/-/cordova-plugin-background-mode-bluetooth-peripheral-1.0.0.tgz",
+  "_shasum": "809f6e70c40f62dd9b8569b0545f8246b8ec2b75",
+  "_spec": "cordova-plugin-background-mode-bluetooth-peripheral",
+  "_where": "/Users/ntilau/Downloads/cross",
+  "author": {
+    "name": "Rand Dusing"
+  },
+  "bugs": {
+    "url": "https://github.com/randdusing/cordova-plugin-background-mode-bluetooth-peripheral/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-background-mode-bluetooth-peripheral",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "Enable Bluetooth Peripheral Background Mode on iOS",
+  "homepage": "https://github.com/randdusing/cordova-plugin-background-mode-bluetooth-peripheral#readme",
+  "keywords": [
+    "bluetooth",
+    "bluetoothle",
+    "bluetooth le",
+    "background",
+    "peripheral",
+    "cordova",
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-background-mode-bluetooth-peripheral",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/randdusing/cordova-plugin-background-mode-bluetooth-peripheral.git"
+  },
+  "version": "1.0.0"
+}

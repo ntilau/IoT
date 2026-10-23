@@ -1,0 +1,33 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-background-mode-bluetooth-central": {
+      "PACKAGE_NAME": "cloud.crossed"
+    },
+    "cordova-plugin-background-mode-bluetooth-peripheral": {
+      "PACKAGE_NAME": "cloud.crossed"
+    },
+    "cordova-plugin-bluetoothle": {
+      "PACKAGE_NAME": "cloud.crossed"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "cloud.crossed"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "cloud.crossed"
+    },
+    "cordova-plugin-uniquedeviceid": {
+      "PACKAGE_NAME": "cloud.crossed"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "cloud.crossed"
+    }
+  },
+  "dependent_plugins": {}
+}

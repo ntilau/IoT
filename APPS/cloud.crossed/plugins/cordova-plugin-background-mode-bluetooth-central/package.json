@@ -1,0 +1,59 @@
+{
+  "_from": "cordova-plugin-background-mode-bluetooth-central",
+  "_id": "cordova-plugin-background-mode-bluetooth-central@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha1-f/k61fPCTCt3d+zatbbAzIV9/Fk=",
+  "_location": "/cordova-plugin-background-mode-bluetooth-central",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-background-mode-bluetooth-central",
+    "name": "cordova-plugin-background-mode-bluetooth-central",
+    "escapedName": "cordova-plugin-background-mode-bluetooth-central",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-background-mode-bluetooth-central/-/cordova-plugin-background-mode-bluetooth-central-1.0.0.tgz",
+  "_shasum": "7ff93ad5f3c24c2b7777ecdab5b6c0cc857dfc59",
+  "_spec": "cordova-plugin-background-mode-bluetooth-central",
+  "_where": "/Users/ntilau/Downloads/cross",
+  "author": {
+    "name": "Rand Dusing"
+  },
+  "bugs": {
+    "url": "https://github.com/randdusing/cordova-plugin-background-mode-bluetooth-central/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-background-mode-bluetooth-central",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "Enable Bluetooth Central Background Mode on iOS",
+  "homepage": "https://github.com/randdusing/cordova-plugin-background-mode-bluetooth-central#readme",
+  "keywords": [
+    "bluetooth",
+    "bluetoothle",
+    "bluetooth le",
+    "background",
+    "central",
+    "cordova",
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-background-mode-bluetooth-central",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/randdusing/cordova-plugin-background-mode-bluetooth-central.git"
+  },
+  "version": "1.0.0"
+}

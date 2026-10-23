@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' http: data: gap: https://ssl.gstatic.com 'unsafe-eval' style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="date=no">
+    <meta name="format-detection" content="address=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1, width=device-width, viewport-fit=cover">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <link rel="stylesheet" href="onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="onsenui/css/onsen-css-components.min.css">
+    <script src="onsenui/js/onsenui.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <title>Cross</title>
+</head>
+
+<body>
+    <ons-navigator id="appNavigator" swipeable swipe-target-width="0px" animation="fade">
+        <ons-page>
+            <ons-splitter id="appSplitter">
+                <ons-splitter-content page="peers.html"></ons-splitter-content>
+                <ons-splitter-side id="photo" page="photo.html" swipeable side="both" collapse="" width="100%" animation="push"></ons-splitter-side>
+                <ons-splitter-side id="message" page="message.html" side="right" collapse="" width="100%" animation="push"></ons-splitter-side>
+            </ons-splitter>
+        </ons-page>
+    </ons-navigator>
+    <template id="peers.html">
+        <ons-page id="peers_page">
+            <div class="content">
+                <ons-pull-hook id="peers_hook" height="0px"></ons-pull-hook>
+                <div id="peers_grid" style="width: 99%; margin: 1%; display: table;"></div>
+            </div>
+        </ons-page>
+    </template>
+    <template id="photo.html">
+        <ons-page id="photo_page">
+                <div class="background" style="background-color: black;"></div>
+            <div class="content" id="photo_content" style="display:flex; align-items: center; vertical-align: middle; width: 99%; margin: .5%;"></div>
+        </ons-page>
+    </template>
+    <template id="message.html">
+        <ons-page id="message_page">
+            <ons-pull-hook id="peer_hook" height="0px"></ons-pull-hook>
+            <div class="content" id="message_content" style="vertical-align: top; height:inherit; width: inherit; padding-left:5px;padding-right:5px; padding-top:5px"></div>
+            <ons-bottom-toolbar style="background-color:inherit; height: 45px; margin:0px !important; padding:0px !important; border:0px" modifier="transparent">
+                <div style="background-color:#DDD; border-radius: 8px; vertical-align:middle; height: 24px; width: inherit; margin: 5px; padding:5px;">
+                    <ons-input type="text" id="msg" placeholder="" onclick="setTimeout(app.xShowChat,750)" onkeypress="app.xSendMsg(event)" modifier="material" style="width: 100%; vertical-align:middle;"></ons-input>
+                </div>
+            </ons-bottom-toolbar> 
+        </ons-page>
+    </template>
+    <ons-dialog id="image_dialog" cancelable>
+        <ons-card style="padding:5px; margin:0">
+            <img id="image" src="" style="vertical-align: middle; width: 100%" />
+        </ons-card>
+    </ons-dialog>
+    <ons-dialog id="peer_dialog" cancelable>
+        <ons-card style="padding:5px; margin:0">
+            <img id="peer_image" src="" style="vertical-align: middle; width: 100%" />
+        </ons-card>
+    </ons-dialog>
+    <ons-modal id="load_modal">
+        <ons-icon size="35px" spin="true" icon="ion-load-d"></ons-icon>
+    </ons-modal>
+</body>
+
+</html>
