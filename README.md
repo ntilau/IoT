@@ -32,6 +32,7 @@ This repository contains embedded firmware for two IoT wireless applications, an
 ```
 IoT/
 ├── README.md                  # This file
+├── CLAUDE.md                  # Guidance for Claude Code working in this repo
 ├── LICENSE                    # MIT License (root project)
 ├── BLE/                       # BLE IoT tracker firmware (CC2640/CC2650)
 │   ├── README.md              # BLE project documentation
@@ -101,6 +102,32 @@ make PS4          # Build individual module (-DMODULE_ID=0x04)
 make clean        # Remove build artifacts
 ```
 
+### Building/Running Apps (Crossed)
+
+Apps is a separate companion project — not part of the embedded firmware — developed independently.
+
+Mobile app (Cordova):
+```bash
+cd Apps/cloud.crossed
+npm install       # Install Node.js dependencies
+cordova platform add ios      # or android
+cordova build ios             # or cordova build android
+cordova run ios               # Run on device/emulator
+# Update the `server` variable in www/js/index.js to point to your API endpoint.
+```
+
+Web backend (PHP):
+```bash
+cd Apps/www.crossed.cloud
+composer install  # PHP 7+ with Composer
+# Create MySQL database `apidb` and import schema from Apps/cloud.crossed/api/api.sql
+# Update database credentials in api/api.php
+# Place Google OAuth client_secrets.json in the project root
+# Deploy to a web server with PHP support
+```
+
+See [Apps/README.md](Apps/README.md) for full setup and [Apps/API.md](Apps/API.md) for the backend API reference.
+
 ## 🔧 Tools & Requirements
 
 ### BLE Development
@@ -143,6 +170,7 @@ Download and install from Texas Instruments: http://www.ti.com/cc2640
 
 ## 📚 Documentation
 
+- **[CLAUDE.md](CLAUDE.md)** - Guidance for Claude Code working in this repository
 - **[BLE/README.md](BLE/README.md)** - BLE tracker implementation details
 - **[SubGHz/README.md](SubGHz/README.md)** - Sub-GHz wireless network overview
 - **[SubGHz/BUILD.md](SubGHz/BUILD.md)** - Advanced build and test modes
@@ -238,7 +266,7 @@ Contributions welcome! Please maintain code consolidation principles:
 1. Avoid duplicating module-specific variants.
 2. Use compile-time configuration flags (e.g., `MODULE_ID`, `BUILD_MODE`).
 3. Update documentation with any changes.
-4. Test all build targets before committing.
+4. Test all build targets before committing. There is no automated test suite or linter — verification is build-only (each `make` target must compile cleanly and produce a `.hex`).
 
 ## 📞 Support
 
