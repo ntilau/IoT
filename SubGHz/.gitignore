@@ -1,0 +1,19 @@
+# SubGHz firmware build artifacts (SDCC)
+*.hex
+*.ihx
+*.asm
+*.lst
+*.cod
+*.map
+*.sym
+*.rel
+
+# Peripheral station multi-module build artifacts
+main_ps*.*
+ps[1-4].hex
+
+# IDE and editor
+.vscode/
+.idea/
+*.workspace
+*.iml

@@ -1,0 +1,16 @@
+# BLE firmware build artifacts (Code Composer Studio / Code::Blocks)
+Debug/
+Release/
+.cproject
+.project
+.settings/
+*.depend
+*.crf
+*.d
+*.cbp.user
+*.layout
+
+# IDE
+.vscode/
+.idea/
+*.iml

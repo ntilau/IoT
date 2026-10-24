@@ -38,7 +38,7 @@ PHP-based web application providing authentication and profile management for th
 3. **Configure database**:
    - Create a MySQL database named `apidb`
    - Import the schema from `../cloud.crossed/api/api.sql`
-   - Update database connection in `api/api.php`:
+   - Update database connection in `../cloud.crossed/api/api.php`:
      ```php
      $con = mysqli_connect("localhost","username","password","apidb");
      ```
@@ -72,7 +72,7 @@ See the main project README for detailed API documentation.
 
 - `index.php`: Main entry point with OAuth flow
 - `oauth2callback.php`: OAuth callback handler
-- `api/api.php`: REST API endpoints
+- `../cloud.crossed/api/api.php`: REST API endpoints
 - `core/prof/`: User profile storage
 - `vendor/`: Composer dependencies
 - `client_secrets.json`: Google OAuth credentials

@@ -85,7 +85,16 @@ cordova run browser
 - `plugins/`: Cordova plugins
 - `platforms/`: Platform-specific code
 - `res/`: Icons and splash screens
-- `api/`: Server-side API files
+- `api/`: Server-side API files (REST endpoints used by the mobile app)
+
+## Backend (www.crossed.cloud)
+
+The OAuth/web backend for the Crossed app lives in `../www.crossed.cloud/`. It handles Google OAuth authentication, profile storage, and serves as the web-facing API. The mobile app's REST API (`api/`) and the OAuth backend (`www.crossed.cloud/`) are separate PHP deployments:
+
+- `cloud.crossed/api/` — REST API endpoints (`getpeer`, `getstatus`, `mkpeer`, `rmpeer`, `sendmsg`, `getmsg`, `getprf`, `setprf`, `rmprf`) called by the mobile app
+- `www.crossed.cloud/` — OAuth flow (`index.php`, `oauth2callback.php`) and profile storage (`core/prof/`)
+
+See `www.crossed.cloud/README.md` for backend setup instructions.
 
 ## Development Notes
 

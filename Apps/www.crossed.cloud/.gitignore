@@ -1,1 +1,12 @@
-# Add any directories, files, or patterns you don't want to be tracked by version control
+# PHP dependencies
+vendor/
+
+# Google OAuth credentials (secret - do not commit)
+client_secrets.json
+
+# User profile data (contains real user data)
+core/prof/*
+
+# IDE
+.vscode/
+.idea/

@@ -14,6 +14,7 @@
 //   - Default (undefined): Production mode
 
 #include <pic18fregs.h>
+#include "../pic18f4620.h"
 #include "delay.h"
 #include "stdio.h"
 

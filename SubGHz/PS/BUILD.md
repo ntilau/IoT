@@ -1,16 +1,19 @@
-# Consolidated Peripheral Stations (PS)
+# Peripheral Station Build Instructions
 
 ## Overview
 
-The Peripheral Stations (PS1, PS2, PS3, PS4) have been consolidated into a single `PS` directory with a configurable MODULE_ID. All four modules are built from the same source code with different module identifiers.
+The Peripheral Stations (PS1, PS2, PS3, PS4) have been consolidated into a single `PS` directory with a configurable `MODULE_ID`. All four modules are built from the same source code with different module identifiers.
+
+See [SubGHz/BUILD.md](../BUILD.md) for general build instructions, tools, and hardware requirements that apply to both BS and PS.
 
 ## Building All Modules
 
 ```bash
-cd PS
 make all          # Builds ps1.hex, ps2.hex, ps3.hex, ps4.hex
 make PS1          # Build only PS1
 make PS2          # Build only PS2
+make PS3          # Build only PS3
+make PS4          # Build only PS4
 make clean        # Remove build artifacts
 ```
 
@@ -27,7 +30,7 @@ packihx main.ihx > ps1.hex
 
 ## Module IDs
 
-Each peripheral station has a unique MODULE_ID used for communication:
+Each peripheral station has a unique `MODULE_ID` used for communication:
 
 | Module | ID | Description |
 |--------|-----|-------------|
@@ -36,7 +39,7 @@ Each peripheral station has a unique MODULE_ID used for communication:
 | PS3 | 0x03 | Peripheral Station 3 |
 | PS4 | 0x04 | Peripheral Station 4 |
 
-The MODULE_ID is transmitted during the handshake with the base station:
+The `MODULE_ID` is transmitted during the handshake with the base station:
 ```c
 if(fifo[0] == 0x5A & fifo[1] == ID)  // ID = MODULE_ID
 ```
@@ -44,19 +47,19 @@ if(fifo[0] == 0x5A & fifo[1] == ID)  // ID = MODULE_ID
 ## Protocol
 
 Each PS module:
-1. Waits for command: 0x5A + module ID
+1. Waits for command: `0x5A + module ID`
 2. Reads 4 bytes of counter data from GPIO pins (RB7-4)
-3. Transmits: 0x2D + 0xA5 + 0x5A + [4 data bytes] + checksum + 0xEF
+3. Transmits: `0x2D + 0xA5 + 0x5A + [4 data bytes] + checksum + 0xEF`
 
 ## Build Modes
 
-Optional test modes can be enabled by defining BUILD_MODE in main.c:
+Optional test modes can be enabled by defining `BUILD_MODE` in `main.c`:
 
 ```c
 //#define BUILD_MODE 1  // TX pattern test
 ```
 
-See main.c header for available modes.
+See `main.c` header for available modes.
 
 ## Output Files
 
@@ -75,4 +78,3 @@ pk2cmd -p PIC18F4620 -f ps1.hex -m  # Flash PS1
 pk2cmd -p PIC18F4620 -f ps2.hex -m  # Flash PS2
 pk2cmd -p PIC18F4620 -f ps3.hex -m  # Flash PS3
 pk2cmd -p PIC18F4620 -f ps4.hex -m  # Flash PS4
-```
