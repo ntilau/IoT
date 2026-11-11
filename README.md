@@ -1,16 +1,15 @@
 # IoT Project
 
-Multi-platform wireless IoT firmware repository featuring Bluetooth Low Energy (BLE) tracking and Sub-GHz wireless communication systems, plus a companion BLE mobile application.
+Multi-platform wireless IoT firmware repository featuring Bluetooth Low Energy (BLE) tracking and Sub-GHz wireless communication systems.
 
 ## 📋 Project Overview
 
-This repository contains embedded firmware for two IoT wireless applications, and a companion mobile application that uses BLE for peer discovery.
+This repository contains embedded firmware for two IoT wireless applications.
 
 | Module | Technology | Microcontroller | Frequency | Purpose |
 |--------|-----------|-----------------|-----------|----------|
 | **BLE** | Bluetooth Low Energy | TI CC2640/CC2650 | 2.4 GHz | IoT tracker/beacon |
 | **SubGHz** | FSK/OOK Radio | PIC18F4620 | 868 MHz | Wireless counter network |
-| **Apps (Crossed)** | BLE + Cordova/PHP | Mobile (iOS/Android) | 2.4 GHz | BLE peer-discovery app |
 
 ## 📑 Table of Contents
 
@@ -58,15 +57,6 @@ IoT/
 │       ├── Makefile           # Multi-module build
 │       ├── BUILD.md           # Peripheral station build guide
 │       └── pic18f4620.h       # Microcontroller header
-└── Apps/                      # Companion: Crossed BLE mobile app (Cordova + PHP)
-    ├── README.md              # Crossed app documentation
-    ├── API.md                 # Backend API reference
-    ├── LICENSE                # Apps component license
-    ├── cloud.crossed/         # Cordova mobile app (iOS/Android/browser)
-    └── www.crossed.cloud/     # PHP backend (Google OAuth, profiles)
-```
-
-> **Note:** `Apps/` is a separate companion project (the "Crossed" mobile app) and is not part of the embedded firmware. It is developed independently of the BLE/SubGHz firmware modules.
 
 ## 🚀 Quick Start
 
@@ -102,32 +92,6 @@ make PS4          # Build individual module (-DMODULE_ID=0x04)
 make clean        # Remove build artifacts
 ```
 
-### Building/Running Apps (Crossed)
-
-Apps is a separate companion project — not part of the embedded firmware — developed independently.
-
-Mobile app (Cordova):
-```bash
-cd Apps/cloud.crossed
-npm install       # Install Node.js dependencies
-cordova platform add ios      # or android
-cordova build ios             # or cordova build android
-cordova run ios               # Run on device/emulator
-# Update the `server` variable in www/js/index.js to point to your API endpoint.
-```
-
-Web backend (PHP):
-```bash
-cd Apps/www.crossed.cloud
-composer install  # PHP 7+ with Composer
-# Create MySQL database `apidb` and import schema from Apps/cloud.crossed/api/api.sql
-# Update database credentials in api/api.php
-# Place Google OAuth client_secrets.json in the project root
-# Deploy to a web server with PHP support
-```
-
-See [Apps/README.md](Apps/README.md) for full setup and [Apps/API.md](Apps/API.md) for the backend API reference.
-
 ## 🔧 Tools & Requirements
 
 ### BLE Development
@@ -143,11 +107,6 @@ See [Apps/README.md](Apps/README.md) for full setup and [Apps/API.md](Apps/API.m
 - **Programmer**: PICkit 2 v2.61.00
 - **Microcontroller**: PIC18F4620
 - **Transceiver**: QUASAR ALPHA-TRX868S
-
-### Apps (Crossed) Development
-- **Framework**: Apache Cordova with Onsen UI
-- **Backend**: PHP web server with Google OAuth
-- **Platforms**: iOS, Android, browser
 
 ## 💻 Installation
 
@@ -176,8 +135,6 @@ Download and install from Texas Instruments: http://www.ti.com/cc2640
 - **[SubGHz/BUILD.md](SubGHz/BUILD.md)** - Advanced build and test modes
 - **[SubGHz/BS/BUILD.md](SubGHz/BS/BUILD.md)** - Base station build guide
 - **[SubGHz/PS/BUILD.md](SubGHz/PS/BUILD.md)** - Peripheral station build guide
-- **[Apps/README.md](Apps/README.md)** - Crossed mobile app documentation
-- **[Apps/API.md](Apps/API.md)** - Backend API reference
 
 ## 🏗️ Architecture
 
@@ -244,20 +201,12 @@ The BLE module (`BLE/src/tag.c`) implements a low-power beacon/tracker:
 - GPIO-based counter I/O
 - Optional test modes for development
 
-**Apps (Crossed) Module:**
-- Bluetooth peer discovery via BLE
-- Real-time messaging between peers
-- Google OAuth authentication
-- Profile management with images
-- Cross-platform: iOS, Android, browser
-
 ## 📝 License
 
 This project is licensed under the [MIT License](LICENSE) (Copyright 2026 Laurent Ntibarikure).
 
 > Some subcomponents include third-party or separately licensed material:
 > - `BLE/` integrates TI's CC26xxware driver library — see `BLE/README.md`.
-> - `Apps/` carries its own `LICENSE` — see `Apps/README.md`.
 
 ## 🤝 Contributing
 
